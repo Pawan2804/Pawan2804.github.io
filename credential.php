@@ -1,4 +1,4 @@
 <?php
-define('Email','pawangohan98@gmail.com');
-define('Password','dragonballz');
+define('Email','pawanghost114@gmail.com');
+define('Password','P@wan@4090');
 ?>
