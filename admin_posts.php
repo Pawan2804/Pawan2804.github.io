@@ -2,6 +2,7 @@
 include "db_conn.php";
 if(isset($_POST['submit'])){
     $id= $_POST['delete'];
+    $id=mysqli_real_escape_string($con,$id);
     $delete_query= "DELETE FROM book_signup WHERE Post_id='$id'";
     $del_res=mysqli_query($con, $delete_query);
 

@@ -1,15 +1,22 @@
 <?php
+session_start();
 include "db_conn.php";
 if(isset($_POST['submit']))
 {
 	$username=$_POST['username'];
 	$password=$_POST['password'];
+  $_SESSION['username'] = $_POST['username'];
+  $username=mysqli_real_escape_string($con,$username);
+  $password=mysqli_real_escape_string($con,$password);
 
 $query= "SELECT * FROM admin_login where username='$username' and password = '$password'";
 $result1=mysqli_query($con,$query);
     if(mysqli_num_rows($result1) == 1){
     	$row = mysqli_fetch_assoc($result1);
+      if($_SESSION['username'])
     	header('location:admin_posts.php');
+      else
+        header('location:admin.php');
     }    
     
     else
