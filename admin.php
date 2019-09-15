@@ -1,3 +1,23 @@
+<?php
+include "db_conn.php";
+if(isset($_POST['submit']))
+{
+	$username=$_POST['username'];
+	$password=$_POST['password'];
+
+$query= "SELECT * FROM admin_login where username='$username' and password = '$password'";
+$result1=mysqli_query($con,$query);
+    if(mysqli_num_rows($result1) == 1){
+    	$row = mysqli_fetch_assoc($result1);
+    	header('location:admin_posts.php');
+    }    
+    
+    else
+         echo"<script>alert('wrong username or password');</script>";
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 <style>
@@ -73,7 +93,7 @@ button:hover {
 </style>
 <body>
 
-<form action="admin.php" style="border:1px solid #ccc" method="post">
+<form style="border:1px solid #ccc" method="post">
   <div class="container">
     <h1>Log in</h1>
     <hr>
@@ -92,44 +112,6 @@ button:hover {
 
 </body>
 </html>
-<?php
-  include "db_conn.php";
-if(isset($_POST['submit']))
-{
-	$username=$_POST['username'];
-	$password=$_POST['password'];
-	$query= "SELECT * FROM admin_login where username='$username' and password = '$password'";
-	$reading_from_book_signup="SELECT * FROM book_signup";
-	$result_for_read=mysqli_query($con,$reading_from_book_signup);
-    
-    $result1=mysqli_query($con,$query);
-    if(mysqli_num_rows($result1) == 1)
-    {
-    ?>
-    <?php
-    	echo("yaay");
-    	if($result_for_read)
-  		{
-  			while($result1 = mysqli_fetch_object($result_for_read))
-  			{
- 
-		  	 echo("<br>");
-		  	 echo("<div class= post>");
-		  	 echo("<div style=width: 70%;left: 10%;>");
-		  	 printf("%s\t %s\n",$result1->First_name,$result1->Last_name);
-		  	 echo("<br>"); 
-		  	 echo("<br>");
-		  	 printf("%s\n",$result1->Email); 
-		  	 echo("</div><br><div style=width: 70%;margin: 10%;>"); 
-		  	 printf( "<img src='images/".$result1->image."'width= '400px' height='400px'>");
-		  	 echo "</div><br>";
-		    echo "</div>";
-		    	
-  			}
-  		}
-	}
-}
-  			
 
-echo("</div>");
-?>
+    
+        
