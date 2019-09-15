@@ -32,10 +32,7 @@ if(isset($_POST['Submit'])){
   	}
 		header("Location: post.php"); 	
 }
-
 ?>
-
-
 <!DOCTYPE html>
 <html style="scroll-behavior: smooth;">
 <head>
@@ -81,7 +78,7 @@ if(isset($_POST['Submit'])){
   <br>
 
 
-<form action="index.php" method="post" enctype="multipart/form-data" style="margin:5% 30% 5% 30%;">
+<form action="book_donate.php" method="post" enctype="multipart/form-data" style="margin:5% 30% 5% 30%;">
   <style type="text/css">
     input{
       margin:10px;
