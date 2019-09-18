@@ -1,24 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@Pawan2804 
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-
-1
-00Pawan2804/NGO_php
- Code Issues 0 Pull requests 0 Projects 0 Wiki Security Insights Settings
-NGO_php/post.html
- virus4297 virus here
-747bcab 8 hours ago
-160 lines (134 sloc)  6.35 KB
-  
 
 <!DOCTYPE html>
 <html style="scroll-behavior: smooth;">
@@ -62,7 +41,7 @@ NGO_php/post.html
           <a href="index.html#mainbod" >About Us</a>
         </div>
       </div>
-  <br><br>
+  <br><br><br><br>
 
 
 
@@ -70,16 +49,45 @@ NGO_php/post.html
 
 
 <style type="text/css">
-  .post{
-    margin:20px;
-    width: 150px;
-    background-color: white;
-    border: 2px solid red ;
-    font-family: 'Lato', cursive;
-    font-size: calc(0.6em + 1vmin);
-  }
+  .box {
+  width: 1000px;
+  border: 2px;
+  border: double;
+  border-color: black;
+  display:block;
+  padding-left: 250px;
+  padding-top: 10px;
+  margin-left: 500px;
+  display: block;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+}
+.border{
+  font-size: 50px;
+  background-color: lightgrey;
+  font-family: cursive;
+  border-color: red;
+  border-width: 5px;
+  border-style: double;
+  text-align: center;
+  border-radius: 12px;
+  padding: 10px;
+}
+.border1{
+  font-size: 20px;  
+  width: 500px;
+  font-family: cursive;
+  padding: 25px;
+  justify-content: center;
+  align-items: center;
+  
+}
 </style>
-<div style="width: 100%;margin:10px 0;display: block;">
+<div class="border">
+  <p><H1>OUR MAGNONOMOUS DONATORS</H1></p>
+</div>
+
   <?php
   include "db_conn.php";
 
@@ -92,16 +100,27 @@ NGO_php/post.html
   	{
   	?>
   	<br>
-  	<div class="post">
-  		<div style=width: 70%;left: 10%;>
+  	<div class="box">
+  		<div class="border1">
   	<?php
- 
-  	 printf("%s\t %s\n",$result1->First_name,$result1->Last_name);
+  	 printf("Name:%s\t %s &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %s\n",$result1->First_name,$result1->Last_name, $result1->Date_and_Time);
   	 echo("<br>"); 
-  	 echo("<br>");
-  	 printf("%s\n",$result1->Email); 
-  	 echo("</div><br><div style=width: 70%;margin: 10%;>"); 
+  	
+  	 printf("Email:%s\n",$result1->Email);
+     echo("<br>"); 
+  
+     printf("Phone Number:%s\n",$result1->Phone_no);
+     echo("</div>");
+       
+     ?>
+     <div class="border1">
+     <?php
+
+      printf("Description About The Books:%s\n",$result1->description);
+      echo("</div>");
+  	 // echo("</div><br><div style=width: 70%;margin: 10%;>"); 
   	 printf( "<img src='images/".$result1->image."'width= '400px' height='400px'>");
+
   	 echo "</div><br>";
     echo "</div>";
   	}
@@ -109,6 +128,7 @@ NGO_php/post.html
   			
   ?>
 </div>
+
 
 
 
