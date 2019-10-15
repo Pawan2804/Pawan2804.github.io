@@ -1,11 +1,13 @@
 <?php
 include "db_conn.php";
 if(isset($_POST['submit'])){
-    $id= $_POST['delete'];
+  if(isset($_POST['Delete'])){
+    $id= $_POST['Delete'];
+
     $id=mysqli_real_escape_string($con,$id);
     $delete_query= "DELETE FROM book_signup WHERE Post_id='$id'";
     $del_res=mysqli_query($con, $delete_query);
-
+}
   
 }
 $reading_from_book_signup="SELECT * FROM book_signup";
@@ -15,7 +17,7 @@ $reading_from_book_signup="SELECT * FROM book_signup";
         <div class="col">
 				<label for="phone">To Delete Enter Post Id</label>
 				<br>
-				<input type="text" name="delete" placeholder="postid">
+				<input type="text" name="Delete" placeholder="postid">
 				 <input type="submit"  name="submit">
 				</div>
     </form>

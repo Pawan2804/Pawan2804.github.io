@@ -34,11 +34,12 @@
 
   <div style="margin-top: 2%;margin-bottom: 5%;width:100%;/*position: -webkit-sticky;position: sticky;*/top: 0;z-index: 1;">       <!-- TOP NAV BAR -->
         <div id="topnav" style="opacity: 0.9;width: 100%;">
-            <a class="active" href="index.html#">Home</a>
-          <a href="application.html" >Get Involved</a>
-          <a href="index.html#contact">Contact</a>
-          <a href="book_donate.html" >Book Donation</a>
-          <a href="index.html#mainbod" >About Us</a>
+          <a class="active" href="index.html#">Home</a>
+                <a href="book_donate.php" >Get Involved</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="post.php" >Donate</a>
+                <a href="index.html#mainbod" >About Us</a>
+                <a href="admin.php">Admin Login</a>
         </div>
       </div>
   <br><br><br><br>
@@ -165,10 +166,11 @@
           </div>
           <div id="botnavbar" style="width: 40%;height: auto;padding-top:10%;">
               <a class="active" href="index.html#">Home</a>
-            <a href="application.html" >Get Involved</a>
-            <a href="index.html#contact">Contact</a>
-            <a href="donate.html" >Donate</a>
-            <a href="index.html#mainbod" >About Us</a>
+                <a href="book_donate.php" >Get Involved</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="post.php" >Donate</a>
+                <a href="index.html#mainbod" >About Us</a>
+                <a href="admin.php">Admin Login</a>
             <!-- <a href="#" class="cd-top text--replace js-cd-top" >BACK TO TOP ^</a> -->
           </div>
           <div class="cd-top text--replace js-cd-top" style="width: auto;height: auto;position:fixed;right: 5px;bottom: 15px;text-shadow: black;">
