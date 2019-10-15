@@ -51,20 +51,19 @@
 
 <style type="text/css">
   .box {
-  width: 1000px;
+  width: 50%;
   border: 2px;
   border: double;
   border-color: black;
   display:block;
-  padding-left: 250px;
   padding-top: 10px;
-  margin-left: 500px;
   display: block;
     margin-left: auto;
     margin-right: auto;
     align-content: center;
 }
-.border{
+.border{  
+  width: 50%;
   font-size: 50px;
   background-color: lightgrey;
   font-family: cursive;
@@ -77,7 +76,7 @@
 }
 .border1{
   font-size: 20px;  
-  width: 500px;
+  width: 50%;
   font-family: cursive;
   padding: 25px;
   justify-content: center;
@@ -85,49 +84,48 @@
   
 }
 </style>
-<div class="border">
+<div style="margin-left: 25%; ">
   <p><H1>OUR MAGNONOMOUS DONATORS</H1></p>
 </div>
 
-  <?php
-  include "db_conn.php";
+<?php
+include "db_conn.php";
 
-  $reading_from_book_signup="SELECT * FROM book_signup";
-  $result_for_read=mysqli_query($con,$reading_from_book_signup);
+$reading_from_book_signup="SELECT * FROM book_signup";
+$result_for_read=mysqli_query($con,$reading_from_book_signup);
 
-  if($result_for_read)
-  {
-  	while($result1 = mysqli_fetch_object($result_for_read))
-  	{
-  	?>
-  	<br>
-  	<div class="box">
-  		<div class="border1">
-  	<?php
-  	 printf("Name:%s\t %s &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %s\n",$result1->First_name,$result1->Last_name, $result1->Date_and_Time);
-  	 echo("<br>"); 
-  	
-  	 printf("Email:%s\n",$result1->Email);
-     echo("<br>"); 
-  
-     printf("Phone Number:%s\n",$result1->Phone_no);
-     echo("</div>");
-       
-     ?>
-     <div class="border1">
-     <?php
+if($result_for_read)
+{
+	while($result1 = mysqli_fetch_object($result_for_read))
+	{
+	?>
+	<br>
+	<div class="box">
+		<div class="border1">
+    	 <?php
+    	 printf("Name:%s\t %s &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %s\n",$result1->First_name,$result1->Last_name, $result1->Date_and_Time);
+    	 echo("<br>"); 
+    	
+    	 printf("Email:%s\n",$result1->Email);
+       echo("<br>"); 
+    
+       printf("Phone Number:%s\n",$result1->Phone_no);
+    echo("</div>");?>
+
+    <div class="border1">
+      <?php
 
       printf("Description About The Books:%s\n",$result1->description);
-      echo("</div>");
-  	 // echo("</div><br><div style=width: 70%;margin: 10%;>"); 
-  	 printf( "<img src='images/".$result1->image."'width= '400px' height='400px'>");
-
-  	 echo "</div><br>";
-    echo "</div>";
-  	}
-  }
-  			
-  ?>
+    echo("</div>");
+	  
+    echo("<div style= 'width:100%; margin:20%;'>"); 
+      printf( "<img src='images/".$result1->image."'width= '400px' height='400px'>");
+    echo "</div><br>";
+  echo "</div>";
+	}
+}
+			
+?>
 </div>
 
 
