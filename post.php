@@ -44,26 +44,22 @@
       </div>
   <br><br><br><br>
 
-
-
-
-
-
-<style type="text/css">
+<div style="margin: 10%;"> <!-- Middle Container -->
+  <style type="text/css">
   .box {
-  width: 50%;
+  width: 90%;
   border: 2px;
   border: double;
   border-color: black;
   display:block;
   padding-top: 10px;
   display: block;
-    margin-left: auto;
-    margin-right: auto;
-    align-content: center;
-}
-.border{  
-  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  }
+  .border{  
+  width: 100%;
   font-size: 50px;
   background-color: lightgrey;
   font-family: cursive;
@@ -73,81 +69,92 @@
   text-align: center;
   border-radius: 12px;
   padding: 10px;
-}
-.border1{
-  font-size: 20px;  
-  width: 50%;
+  }
+  .border1{
+  font-size: 15px;  
+  width: 95%;
   font-family: cursive;
   padding: 25px;
   justify-content: center;
   align-items: center;
-  
-}
-</style>
-<div style="margin-left: 25%; ">
-  <p><H1>OUR MAGNONOMOUS DONATORS</H1></p>
-<form action='post.php' method="post">
-  <select name="category">
-  <option value="Fiction">Fiction</option>
-  <option value="non fiction">NOn Fiction</option>
-  <option value="Academic">Academic</option>
-  <option value="all">ALL</option>
-</select>
- <input class="button" type="submit" name="Submit" value="Donate Book"> 
-</form>
-</div>
+  }
+  img{
+    width: 100%;
+  }
+  </style>
 
-<?php
-include "db_conn.php";
-
-if(isset($_POST['Submit']))
-{
-//$reading_from_book_signup="SELECT * FROM book_signup";
-  $cat=$_POST['category'];
-  echo($cat);
-  if($cat=='all')
-  
-    $reading_from_book_signup="SELECT * FROM book_signup";
-
-  else 
-    $reading_from_book_signup="SELECT * FROM book_signup WHERE book_type='$cat'";
-{
-    $result_for_read=mysqli_query($con,$reading_from_book_signup);
-    if($result_for_read)
-    {
-      while($result1 = mysqli_fetch_object($result_for_read))
-      {
-        ?>
-        <br>
-        <div class="box">
-          <div class="border1">
-             <?php
-             printf("Name:%s\t %s &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %s\n",$result1->First_name,$result1->Last_name, $result1->Date_and_Time);
-             echo("<br>"); 
-            
-             printf("Email:%s\n",$result1->Email);
-             echo("<br>"); 
-          
-             printf("Phone Number:%s\n",$result1->Phone_no);
-          echo("</div>");?>
-
-          <div class="border1">
-            <?php
-            printf("Description About The Books:%s\n",$result1->description);
-          echo("</div>");
-          
-          echo("<div style= 'width:100%; margin:20%;'>"); 
-            printf( "<img src='images/".$result1->image."'width= '400px' height='400px'>");
-          echo "</div><br>";
-        echo "</div>";
-      }
-    }
-  } 
-  }     
-  ?>
+  <div>
+    <p><H1>OUR MAGNONOMOUS DONATORS</H1></p><br><br>
+    <H4>Please choose the Category to show relevant books (else choose 'ALL')</H4><br><br>
+  <form action='post.php' method="post">
+    <select name="category">
+    <option value="Fiction">Fiction</option>
+    <option value="non fiction">NOn Fiction</option>
+    <option value="Academic">Academic</option>
+    <option value="all">ALL</option>
+  </select>
+   <input class="button" type="submit" name="Submit" value="Show Books"> 
+  </form>
   </div>
-  
 
+  <?php
+  include "db_conn.php";
+
+  if(isset($_POST['Submit']))
+  {
+  //$reading_from_book_signup="SELECT * FROM book_signup";
+    $cat=$_POST['category'];
+    echo($cat);
+    if($cat=='all')
+    
+      $reading_from_book_signup="SELECT * FROM book_signup";
+
+    else 
+      $reading_from_book_signup="SELECT * FROM book_signup WHERE book_type='$cat'";
+  {
+      $result_for_read=mysqli_query($con,$reading_from_book_signup);
+      if($result_for_read)
+      {
+        while($result1 = mysqli_fetch_object($result_for_read))
+        {
+          ?>
+          <br>
+          <div class="box">
+            <div class="border1">
+               <?php
+               printf("%s",$result1->Date_and_Time);
+               echo("<br>"); 
+
+               printf("%s %s",$result1->First_name,$result1->Last_name);                       
+               echo("<br><br>"); 
+
+               printf("EMAIL");                      
+               echo("<br>"); 
+               printf("%s",$result1->Email);                       
+               echo("<br>"); 
+            
+               printf("CONTACT");                      
+               echo("<br>"); 
+               printf("%s",$result1->Phone_no);
+               echo("</div>");?>
+
+            <div class="border1">
+              <?php
+              printf("Description About The Books:%s",$result1->description);
+            echo("</div>");
+            
+            echo("<div style= 'width:100%;'>"); 
+              printf( "<img src='images/".$result1->image."'>'");
+            echo "</div><br>";
+          echo "</div>";
+        }
+      }
+    } 
+    }     
+    ?>
+    </div>
+  
+</div>
 
 
 

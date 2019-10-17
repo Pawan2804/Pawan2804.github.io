@@ -80,7 +80,7 @@ if(isset($_POST['Submit'])){
   <br>
 
 
-<form action="book_donate.php" method="post" enctype="multipart/form-data" style="margin:5% 30% 5% 30%;">
+<form action="book_donate.php" method="post" enctype="multipart/form-data" style="margin:15% 3%;width: 50%;max-width: 400px;">
   <style type="text/css">
     input{
       margin:10px;
@@ -104,7 +104,7 @@ if(isset($_POST['Submit'])){
       Phone Number:<br><br><br>
       Book Description:<br><br><br><br><br>
     </div>
-    <div style="width: 40%;margin-right: 5%;">
+    <div style="width: 80%;margin-right: 5%;">
       <input type="text" name="firstname">
       <br>
       <input type="text" name="lastname">
@@ -113,7 +113,7 @@ if(isset($_POST['Submit'])){
       <br>
       <input type="text" name="PhNo">
       <br><br>
-      <textarea placeholder="Description About Your Books" rows="10" cols="50" name="description"></textarea>
+      <textarea placeholder="Description About Your Books" rows="10" cols="50" name="description" style="width:143%;"></textarea>
       <select name="category">
   <option value="Fiction">Fiction</option>
   <option value="NonFiction">NOn Fiction</option>
@@ -122,7 +122,7 @@ if(isset($_POST['Submit'])){
 </select>
       <br><br>
       Upload Image:<nsbp;>
-      <input type="file" name="image" id="image">
+      <input type="file" name="image" id="image" style="width: 200px;">
       <br><br>
       <input class="button" type="submit" name="Submit" value="Donate Book"> 
     </div>
