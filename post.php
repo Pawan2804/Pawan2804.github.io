@@ -86,48 +86,67 @@
 </style>
 <div style="margin-left: 25%; ">
   <p><H1>OUR MAGNONOMOUS DONATORS</H1></p>
+<form action='post.php' method="post">
+  <select name="category">
+  <option value="Fiction">Fiction</option>
+  <option value="non fiction">NOn Fiction</option>
+  <option value="Academic">Academic</option>
+  <option value="all">ALL</option>
+</select>
+ <input class="button" type="submit" name="Submit" value="Donate Book"> 
+</form>
 </div>
 
 <?php
 include "db_conn.php";
 
-$reading_from_book_signup="SELECT * FROM book_signup";
-$result_for_read=mysqli_query($con,$reading_from_book_signup);
-
-if($result_for_read)
+if(isset($_POST['Submit']))
 {
-	while($result1 = mysqli_fetch_object($result_for_read))
-	{
-	?>
-	<br>
-	<div class="box">
-		<div class="border1">
-    	 <?php
-    	 printf("Name:%s\t %s &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %s\n",$result1->First_name,$result1->Last_name, $result1->Date_and_Time);
-    	 echo("<br>"); 
-    	
-    	 printf("Email:%s\n",$result1->Email);
-       echo("<br>"); 
-    
-       printf("Phone Number:%s\n",$result1->Phone_no);
-    echo("</div>");?>
+//$reading_from_book_signup="SELECT * FROM book_signup";
+  $cat=$_POST['category'];
+  echo($cat);
+  if($cat=='all')
+  
+    $reading_from_book_signup="SELECT * FROM book_signup";
 
-    <div class="border1">
-      <?php
+  else 
+    $reading_from_book_signup="SELECT * FROM book_signup WHERE book_type='$cat'";
+{
+    $result_for_read=mysqli_query($con,$reading_from_book_signup);
+    if($result_for_read)
+    {
+      while($result1 = mysqli_fetch_object($result_for_read))
+      {
+        ?>
+        <br>
+        <div class="box">
+          <div class="border1">
+             <?php
+             printf("Name:%s\t %s &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; %s\n",$result1->First_name,$result1->Last_name, $result1->Date_and_Time);
+             echo("<br>"); 
+            
+             printf("Email:%s\n",$result1->Email);
+             echo("<br>"); 
+          
+             printf("Phone Number:%s\n",$result1->Phone_no);
+          echo("</div>");?>
 
-      printf("Description About The Books:%s\n",$result1->description);
-    echo("</div>");
-	  
-    echo("<div style= 'width:100%; margin:20%;'>"); 
-      printf( "<img src='images/".$result1->image."'width= '400px' height='400px'>");
-    echo "</div><br>";
-  echo "</div>";
-	}
-}
-			
-?>
-</div>
-
+          <div class="border1">
+            <?php
+            printf("Description About The Books:%s\n",$result1->description);
+          echo("</div>");
+          
+          echo("<div style= 'width:100%; margin:20%;'>"); 
+            printf( "<img src='images/".$result1->image."'width= '400px' height='400px'>");
+          echo "</div><br>";
+        echo "</div>";
+      }
+    }
+  } 
+  }     
+  ?>
+  </div>
+  
 
 
 

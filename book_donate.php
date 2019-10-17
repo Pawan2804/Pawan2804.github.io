@@ -9,6 +9,7 @@ if(isset($_POST['Submit'])){
 	$Phone=$_POST['PhNo'];
 	$Description=$_POST['description'];
 	$image = $_FILES['image']['name'];
+  $category=$_POST['category'];
 
 		
 	
@@ -22,7 +23,7 @@ if(isset($_POST['Submit'])){
 	
 	
 	$target = "images/".basename($_FILES['image']['name']);	
-	$inserting_into_book_signup="INSERT INTO book_signup(First_name,Last_name,Email,Phone_no,description,image)VALUES('$firstname','$lastname','$Email','$Phone','$Description','$image')";
+	$inserting_into_book_signup="INSERT INTO book_signup(First_name,Last_name,Email,Phone_no,description,image,book_type)VALUES('$firstname','$lastname','$Email','$Phone','$Description','$image','$category')";
   
  	$result_for_insert=mysqli_query($con,$inserting_into_book_signup);
  		if (move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
@@ -113,6 +114,12 @@ if(isset($_POST['Submit'])){
       <input type="text" name="PhNo">
       <br><br>
       <textarea placeholder="Description About Your Books" rows="10" cols="50" name="description"></textarea>
+      <select name="category">
+  <option value="Fiction">Fiction</option>
+  <option value="NonFiction">NOn Fiction</option>
+  <option value="Academic">Academic</option>
+  
+</select>
       <br><br>
       Upload Image:<nsbp;>
       <input type="file" name="image" id="image">
