@@ -37,7 +37,7 @@
           <a class="active" href="index.html#">Home</a>
                 <a href="book_donate.php" >Get Involved</a>
                 <a href="index.html#contact">Contact</a>
-                <a href="post.php" >Donate</a>
+                <a href="post.php" >Book Donations</a>
                 <a href="index.html#mainbod" >About Us</a>
                 <a href="admin.php">Admin Login</a>
         </div>
@@ -192,7 +192,7 @@
               <a class="active" href="index.html#">Home</a>
                 <a href="book_donate.php" >Get Involved</a>
                 <a href="index.html#contact">Contact</a>
-                <a href="post.php" >Donate</a>
+                <a href="post.php" >Book Donations</a>
                 <a href="index.html#mainbod" >About Us</a>
                 <a href="admin.php">Admin Login</a>
             <!-- <a href="#" class="cd-top text--replace js-cd-top" >BACK TO TOP ^</a> -->
