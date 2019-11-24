@@ -39,7 +39,7 @@ $result1=mysqli_query($con,$query);
      
   
 
-  <div style="margin-top: 2%;margin-bottom: 5%;width:100%;/*position: -webkit-sticky;position: sticky;*/top: 0;z-index: 1;">       <!-- TOP NAV BAR -->
+  <div style="margin-top: 2%;margin-bottom: 5%;width:100%;/*position: -webkit-sticky;position: sticky;*/top: 0;">       <!-- TOP NAV BAR -->
         <div id="topnav" style="opacity: 0.9;width: 100%;">
           <a class="active" href="index.html#">Home</a>
                 <a href="book_donate.php" >Get Involved</a>
@@ -54,7 +54,7 @@ $result1=mysqli_query($con,$query);
       <br>
       <br>  <br>  <br>  
       
-      <form class="box" method="POST">
+      <form class="box" method="POST" style="position: absolute;">
   <h1>Admin Login</h1>
   <input type="text" name="username" placeholder="username">
   <input type="text" name="password" placeholder="password">
