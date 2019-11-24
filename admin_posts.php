@@ -4,6 +4,7 @@
   <title>Admin Page</title>
 </head>
 <body style="margin: 15%;padding: 5%;">
+  <a href="index.html" style="position: fixed;top:5px;right:5px;">Logout</a>
       <?php
     include "db_conn.php";
     if(isset($_POST['submit'])){
