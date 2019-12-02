@@ -84,7 +84,7 @@
   </style>
 
   <div>
-    <p><H1>OUR MAGNONOMOUS DONATORS</H1></p><br><br>
+    <p><H1>OUR MAGNANIMOUS DONATORS</H1></p><br><br>
     <H4>Please choose the Category to show relevant books (else choose 'ALL')</H4><br><br>
   <form action='post.php' method="post">
     <select name="category">
