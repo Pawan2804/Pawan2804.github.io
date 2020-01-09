@@ -49,7 +49,15 @@
       border-radius: 10px;
       }
 
+      .maingoals{
+        font-size: 22px;
+      }
+
+      #topnav{font-size: 22px;}
+      #botnav{font-size: 22px;}
+      #donateSection{font-size: 22px;}
     }
+    body{font-size: 22px;}
 
     /* If the screen size is 600px wide OR LESS, set the font-size of <div> to 30px */
     @media screen and (max-width: 600px) {
@@ -63,6 +71,14 @@
       }
       .contain-join{
         margin-bottom: 250px;
+      }
+
+      .maingoals{
+        font-size: 20px;
+      }
+
+      .mgclass{
+        padding-bottom: 10%;
       }
     }
 
