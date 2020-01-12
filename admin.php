@@ -58,7 +58,7 @@ $result1=mysqli_query($con,$query);
   <h1>Admin Login</h1>
   <input type="text" name="username" placeholder="username">
   <input type="text" name="password" placeholder="password">
-  <input type="submit" name="submit" value="login">
+  <button type="submit" name="submit" value="login"><a href="admin_posts.php?id='bla'"> Buy</button>
 
 </form>
 
