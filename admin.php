@@ -1,20 +1,4 @@
-<?php
-include "db_conn.php";
-if(isset($_POST['submit']))
-{
-  $username=$_POST['username'];
-  $password=$_POST['password'];
-$query= "SELECT * FROM admin_login where username='$username' and password = '$password'";
-$result1=mysqli_query($con,$query);
-    if(mysqli_num_rows($result1) == 1){
-      $row = mysqli_fetch_assoc($result1);
-      header('location:admin_posts.php');
-    }    
-    
-    else
-         echo"<script>alert('wrong username or password');</script>";
-}
-?>
+
 
 <!DOCTYPE html>
 <html>
@@ -36,17 +20,33 @@ $result1=mysqli_query($con,$query);
        
 </head>
 <body>
-     
+     <?php
+include "db_conn.php";
+if(isset($_POST['submit']))
+{
+  $username=$_POST['username'];
+  $password=$_POST['password'];
+$query= "SELECT * FROM admin_login where username='$username' and password = '$password'";
+$result1=mysqli_query($con,$query);
+    if(mysqli_num_rows($result1) == 1){
+      $row = mysqli_fetch_assoc($result1);
+      header('location:admin_posts.php');
+    }    
+    
+    else
+         echo"<script>alert('wrong username or password');</script>";
+}
+?>
   
 
-  <div style="margin-top: 2%;margin-bottom: 5%;width:100%;/*position: -webkit-sticky;position: sticky;*/top: 0;z-index: 1;">       <!-- TOP NAV BAR -->
+  <div style="margin-top: 2%;margin-bottom: 5%;width:100%;top: 0;">       <!-- TOP NAV BAR -->
         <div id="topnav" style="opacity: 0.9;width: 100%;">
-          <a class="active" href="index.html#">Home</a>
+                <a href="index.html#">Home</a>
                 <a href="book_donate.php" >Get Involved</a>
                 <a href="index.html#contact">Contact</a>
                 <a href="post.php" >Book Donations</a>
                 <a href="index.html#mainbod" >About Us</a>
-                <a href="admin.php">Admin Login</a>
+                <a class="active" href="admin.php">Admin Login</a>
         </div>
       </div>
       <br>
@@ -54,7 +54,7 @@ $result1=mysqli_query($con,$query);
       <br>
       <br>  <br>  <br>  
       
-      <form class="box" method="POST">
+      <form class="box" method="POST" style="position: absolute;">
   <h1>Admin Login</h1>
   <input type="text" name="username" placeholder="username">
   <input type="text" name="password" placeholder="password">

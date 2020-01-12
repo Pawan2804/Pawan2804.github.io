@@ -1,10 +1,10 @@
 /* Style the video: 100% width and height to cover the entire window */
-#myVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%; 
-  min-height: 100%;
+  #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
 }
 
 /*CSS FOR ONIMAGE TEXT*/
@@ -14,16 +14,14 @@
         display: inline-block; /* Make the width of box same as image */
     }
     .box .text{
-        position: absolute;
-        z-index: 999;
         margin: 0 auto;
         left: 0;
         right: 0;        
         text-align:center;
-        top: 5%; /* Adjust this value to move the positioned div up and down */
+        top: 2%; /* Adjust this value to move the positioned div up and down */
         background: rgba(1, 1, 1, 0.1);
         font-family: 'Lato', cursive;
-        font-size:calc(0.6em + 1vmin);
+        /*font-size:150%;*/
         color: white;
         width: 90%; /* Set the width of the positioned div */
     }
@@ -31,14 +29,59 @@
 /*CSS FOR QUOTE BAR*/
 
   #q {
-    margin: 60px;
+    margin: 6px;
     margin-top: 10px;
     padding-bottom: 30px;
-    font-size: 2.5vw;
     font-family: 'Lobster', cursive;
     color: black;
     opacity: 1;
   }
+    /* If the screen size is 601px wide OR MORE, set the font-size of <div> to 80px */
+    @media screen and (min-width: 601px) {
+       #q{
+      font-size: 30px;
+      margin: 0;
+      }
+
+      .join {
+      font-size: 22px;
+      background-color: rgba(0,0,0,0.3);
+      border-radius: 10px;
+      }
+
+      .maingoals{
+        font-size: 22px;
+      }
+
+      #topnav{font-size: 22px;}
+      #botnav{font-size: 22px;}
+      #donateSection{font-size: 22px;}
+    }
+    body{font-size: 22px;}
+
+    /* If the screen size is 600px wide OR LESS, set the font-size of <div> to 30px */
+    @media screen and (max-width: 600px) {
+      #q {
+      font-size: 18px;
+      }
+
+      .join{
+        color:black;
+        top: 20px;
+      }
+      .contain-join{
+        margin-bottom: 250px;
+      }
+
+      .maingoals{
+        font-size: 20px;
+      }
+
+      .mgclass{
+        padding-bottom: 10%;
+      }
+    }
+
 
   .header {
     background-color: #ffffff ;
@@ -51,9 +94,9 @@
 
 /*CSS FOR TOP NAVIGATION BAR */
 
-  /* Add a black background color to the top navigation */
+/* Add a black background color to the top navigation */
   #topnav {
-    border-radius: 10px;
+    border-radius: 0px;
     margin: 0;
     margin-left: 0px;
     margin-top: 0px;
@@ -61,6 +104,7 @@
     float: right;
     background-color: #000000;
     overflow: hidden;
+    padding-right: 5%;
   }
 
   /* Style the links inside the navigation bar */
@@ -72,7 +116,7 @@
     padding: 1.2vw 1.2vw;
     margin: 1vw;
     text-decoration: none;
-    font-size: calc(0.75em + 1vmin);
+    /*font-size: 175%;*/
   }
 
   /* Change the color of links on hover */
@@ -155,7 +199,7 @@
     background-color: #101010 ;
     padding: 5%;
     font-family: Lato;
-    font-size: 35px;
+    /*font-size: 175%;*/
     color: white;
   }
 
@@ -177,7 +221,7 @@
     padding: 14px 14px;
     margin: 10px;
     text-decoration: none;
-    font-size: 17px;
+    /*font-size: 175%;*/
     max-height:50px; 
     max-width:0 auto;
   }
@@ -213,13 +257,13 @@
   .credits{
       background-color:#ffffff ;
       text-align:center;
-      font-size:1.15em;
+      /*font-size:110%;*/
       margin:auto;
       height: auto;
   }
   .credits div{
       margin:auto;
-      font-size:1em;
+      /*font-size:100%;*/
   }
   .credits a, .credits a:visited{
       text-decoration:none;

@@ -69,8 +69,8 @@ if(isset($_POST['Submit'])){
 
   <div style="margin-top: 2%;margin-bottom: 5%;width:100%;/*position: -webkit-sticky;position: sticky;*/top: 0;z-index: 1;">       <!-- TOP NAV BAR -->
         <div id="topnav" style="opacity: 0.9;width: 100%;">
-          <a class="active" href="index.html#">Home</a>
-                <a href="book_donate.php" >Get Involved</a>
+                <a href="index.html#">Home</a>
+                <a class="active" href="book_donate.php" >Get Involved</a>
                 <a href="index.html#contact">Contact</a>
                 <a href="post.php" >Book Donations</a>
                 <a href="index.html#mainbod" >About Us</a>
