@@ -134,7 +134,7 @@
          echo("<br><div style width: 70%;margin: 10%;>"); 
          printf( "<img src='images/".$result1->image."'width= '300px' height='300px'>");?>
          <form action="admin_posts.php" method="get">
-         <button class="add-to-cart btn btn-default" type="submit" name="submit"><span class="glyphicon glyphicon-gift"></span><a href="admin_posts.php?id=<?=urlencode($result1->Post_id);?>"> Buy</button>
+         <button class=" btn btn-danger" type="submit" name="submit"><span class="glyphicon glyphicon-gift"></span><a href="admin_posts.php?id=<?=urlencode($result1->Post_id);?>"> Delete</button>
          </form>
          <?php
          echo "</div></div>";
