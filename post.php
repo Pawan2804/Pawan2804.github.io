@@ -24,7 +24,7 @@
     </div>
     <quote id="q">
       <div style="font-size: calc(0.75em + 1vmin);">
-        Be the chaneg you want to see in the world 
+        Be the change you want to see in the world 
       </div> 
       <div>
          &nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  - Namma Bappu 

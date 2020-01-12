@@ -1,102 +1,109 @@
-<<<<<<< HEAD
-<?php
-include "db_conn.php";
-$id_url=($_GET['id']);
-
-    $id=mysqli_real_escape_string($con,$id_url);
-    $delete_query= "DELETE FROM book_signup WHERE Post_id='$id_url'";
-    $del_res=mysqli_query($con, $delete_query);
-  
-$reading_from_book_signup="SELECT * FROM book_signup";
-  $result_for_read=mysqli_query($con,$reading_from_book_signup);
-  ?>
-    <?php
-  if($result_for_read)
-  {
-  	while($result1 = mysqli_fetch_object($result_for_read))
-  	{
-  	?>
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title></title>
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
-  	<style>
-  	div.info {
-  background-color: lightgrey;
-  width: 400px;
-  padding: 50px;
-  margin: 20px;
-}
-</style>
- </head> 	
-  <body>
-	<div class="info">
-  	<?php
-    $id_for_delete=$result1->Post_id;
- 	printf("ID: %s\n",$result1->Post_id);
- 	echo "<br>";
- 	echo "<br>";
-
-  	 printf("Name%s\t %s\n",$result1->First_name,$result1->Last_name);
-  	 echo("<br>"); 
-  	 echo("<br>");
-  	 printf("Email: %s\n",$result1->Email);
-  	 echo("<br>"); 
-  	 echo("<br>");
-  	 printf("Description: %s\n",$result1->description); 
-  	 echo("</div><br><div style=width: 70%;margin: 10%;>"); 
-  	 printf( "<img src='images/".$result1->image."'width= '400px' height='400px'>");
-     ?>
-    
-      <a href=admin_posts.php?id=<?php echo urlencode($id_for_delete);?>><button type="submit" class="btn btn-success">Success</button></a>
-    
-     <?php
-  	}			
-  ?>
-</div>
-</div>
-<?php
-}
-?>
- </body>
-    </html>
-=======
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Admin Page</title>
-</head>
-<body style="margin: 15%;padding: 5%;">
-  <a href="index.html" style="position: fixed;top:5px;right:5px;">Logout</a>
-      <?php
+ <?php
     include "db_conn.php";
-    if(isset($_POST['submit'])){
-      if(isset($_POST['Delete'])){
-        $id= $_POST['Delete'];
-
+    session_start();
+    $id1=$_SESSION['id1'];
+    print($id1);
+    if($id1!=0){
+    if(isset($_GET['id'])){
+  $id= $_GET['id'];
         $id=mysqli_real_escape_string($con,$id);
         $delete_query= "DELETE FROM book_signup WHERE Post_id='$id'";
         $del_res=mysqli_query($con, $delete_query);
     }
       
-    }
     $reading_from_book_signup="SELECT * FROM book_signup";
       $result_for_read=mysqli_query($con,$reading_from_book_signup);
       ?>
-      <form action="admin_posts.php" method="post">
-            <div class="col">
-            <label for="phone"><h2>To Delete Enter Post Id</h2></label>
-            <br>
-            <input type="text" name="Delete" placeholder="postid">
-             <input type="submit"  name="submit">
-            </div>
-        </form>
-        <?php
-      if($result_for_read)
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="admin.css">
+  <title>Admin Login</title>
+  <title>Be The Change Hospete</title>
+        <link rel="icon" type="image/png" href="logo.png" />
+        <script src="index.js"></script>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href="https://fonts.googleapis.com/css?family=EB+Garamond:400,800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="index.css">
+        <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIagkEIkCFF1GjIVT9eif2fx2c-0_P5sQ &callback=initMap">
+          </script>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <style type="text/css">
+          <style type="text/css">
+  .box {
+  width: 90%;
+  border: 2px;
+  border: double;
+  border-color: black;
+  display:block;
+  padding-top: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  }
+  .border{  
+  width: 100%;
+  font-size: 50px;
+  background-color: lightgrey;
+  font-family: cursive;
+  border-color: red;
+  border-width: 5px;
+  border-style: double;
+  text-align: center;
+  border-radius: 12px;
+  padding: 10px;
+  }
+  .border1{
+  font-size: 15px;  
+  width: 95%;
+  font-family: cursive;
+  padding: 25px;
+  justify-content: center;
+  align-items: center;
+  }
+  img{
+    width: 100%;
+  }
+   div.info {
+          background-color: lightgrey;
+          width: 400px;
+          padding: 50px;
+          margin: 20px;
+          }
+        </style>
+<body style="background-color: rgba(1, 1, 1, 0);">
+  
+  <div class="header" style="opacity: 0.6;margin-bottom: 0px;background:linear-gradient(-35deg,#afbfdc,rgba(0, 230, 64, 1),rgba(25, 181, 254, 1));">  <!-- QUOTE BAR -->
+    <div>
+      <img src="logo.png" style="float: left;max-width: 13vw;border:1px solid #021a40; border-radius: 200px;border-color: white;">
+    </div>
+    <quote id="q">
+      <div style="font-size: calc(0.75em + 1vmin);">
+        Be the change you want to see in the world 
+      </div> 
+      <div>
+         &nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;  - Namma Bappu 
+      </div>
+    </quote>
+  </div>
+</head>       <!-- TOP NAV BAR -->
+        <div id="topnav" style="opacity: 0.9;width: 100%;">
+                <a class="active" href="logout.php">Logout</a>
+                <a href="index.html#">Home</a>
+                <a href="book_donate.php" >Get Involved</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="post.php" >Book Donations</a>
+                <a href="index.html#mainbod" >About Us</a>
+                <a class="active" href="admin.php">Admin Login</a>
+        
+      </div>
+      <?php
+       if($result_for_read)
       {
         while($result1 = mysqli_fetch_object($result_for_read))
         {
@@ -109,9 +116,10 @@ $reading_from_book_signup="SELECT * FROM book_signup";
           margin: 20px;
           }
         </style>
-
+<br>
+<!-- <center> -->
         <?php
-        echo "<div class='info' style='margin:10%;padding: 10%;border: 2px black solid;'>";
+        echo "<div class='info' style='margin:20%;padding: 10%;border: 2px black solid;'>";
         printf("ID: %s\n",$result1->Post_id);
         echo "<br>";
         echo "<br>";
@@ -123,15 +131,25 @@ $reading_from_book_signup="SELECT * FROM book_signup";
          echo("<br>"); 
          echo("<br>");
          printf("Description: %s\n",$result1->description); 
-         echo("<br><div style=width: 70%;margin: 10%;>"); 
-         printf( "<img src='images/".$result1->image."'width= '400px' height='400px'>");
+         echo("<br><div style width: 70%;margin: 10%;>"); 
+         printf( "<img src='images/".$result1->image."'width= '300px' height='300px'>");?>
+         <form action="admin_posts.php" method="get">
+         <button class="add-to-cart btn btn-default" type="submit" name="submit"><span class="glyphicon glyphicon-gift"></span><a href="admin_posts.php?id=<?=urlencode($result1->Post_id);?>"> Buy</button>
+         </form>
+         <?php
          echo "</div></div>";
-        }     
+             
       ?>
     <?php
+  }
     }
-    ?>
- 
-</body>
-</html>
->>>>>>> a4517d128128c859b755c7d07c9357a813c11d18
+ ?> 
+   <!--  </center> -->   
+    </div>
+    </html>
+    <?php
+     }
+  else
+    header('location:admin.php');
+  
+    ?> 
