@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2019 at 02:27 PM
+-- Generation Time: Jan 14, 2020 at 04:23 AM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.8
 
@@ -64,11 +64,7 @@ CREATE TABLE `book_signup` (
 --
 
 INSERT INTO `book_signup` (`Post_id`, `First_name`, `Last_name`, `Email`, `Phone_no`, `description`, `image`, `Date_and_Time`, `book_type`) VALUES
-(71, '', '', '', 0, '', '', '2019-10-16 14:21:13', 'non fiction'),
-(72, '', '', '', 0, '', '', '2019-10-16 14:21:40', 'non fiction'),
-(73, 'Pawan', 'V', 'pawangohan98@gmail.com', 9739285834, 'OHH MY GSADSAZDAS', 'WhatsApp Image 2019-10-14 at 17.07.11.jpeg', '2019-10-16 14:22:45', 'non fiction'),
-(74, '', '', '', 0, '', '', '2019-10-16 15:13:06', 'Fiction'),
-(75, 'Pawan', 'v', 'PAWANGOHAN98@GMAIL.COM', 9739285834, 'VFDBFDBGDNFGNFNFNFN', 'WhatsApp Image 2019-10-14 at 17.07.11.jpeg', '2019-10-17 10:04:58', 'Fiction');
+(78, 'p', 'v', 'p@gmail.com', 2323, 'vfrfb', 'devil_may_cry.jpg', '2020-01-12 16:39:37', 'Fiction');
 
 --
 -- Indexes for dumped tables
@@ -100,7 +96,7 @@ ALTER TABLE `admin_login`
 -- AUTO_INCREMENT for table `book_signup`
 --
 ALTER TABLE `book_signup`
-  MODIFY `Post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `Post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
